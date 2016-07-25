@@ -3,7 +3,7 @@
 SCRIPT=$(readlink -f $0)
 SCRIPT_DIR=$(readlink -f $(dirname ${SCRIPT})/../)
 
-ENABLED_BRANCHES="master develop"
+ENABLED_BRANCHES="master develop develop-itk-4.10"
 DOCKER_REPO="tarantool/build"
 #DOCKER_REPO="rtsisyk/build"
 
