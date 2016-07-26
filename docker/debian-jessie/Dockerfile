@@ -4,7 +4,7 @@ MAINTAINER Roman Tsisyk <roman@tarantool.org>
 ADD backports.list /etc/apt/sources.list.d/
 ADD preferences /etc/apt/preferences
 RUN apt-get update && apt-get install -y --force-yes \
-    build-essential gdb git vim \
+    build-essential gdb git  \
     devscripts debhelper fakeroot cdbs equivs rpm alien \
     sudo mc
 
