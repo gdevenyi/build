@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 MAINTAINER Roman Tsisyk <roman@tarantool.org>
 
 RUN apt-get update && apt-get install -y --force-yes \
-    build-essential gdb git vim \
+    build-essential gdb git ccache vim \
     devscripts debhelper fakeroot cdbs equivs rpm alien \
     sudo mc
 
