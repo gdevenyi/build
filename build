@@ -142,7 +142,7 @@ $(BUILDROOT)/%/.build: $(BUILDROOT)/%/$(TARBALL) \
 	ls -l && \
 	docker run \
 		--volume $$(pwd):$$(pwd) \
-        --volume $${HOME}/.ccache:/ccache \
+        --volume $(HOME)/.ccache:/ccache \
         -e CCACHE_DIR=/ccache \
 		--workdir $$(pwd) \
 		--rm=true $(call osdist,$@)-for-${USER}  \
