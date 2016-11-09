@@ -97,12 +97,6 @@ chmod a+x ${BUILDDIR}/userwrapper.sh
 env | grep -E "PRODUCT|VERSION|RELEASE|TARBALL_|CHANGELOG_" > ${BUILDDIR}/env
 
 #
-# Setup cache directory
-#
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/packpack"
-mkdir -p "${CACHE_DIR}"
-
-#
 # Fix security context for selinux
 #
 chcon -Rt svirt_sandbox_file_t ${PACKDIR} ${SOURCEDIR} ${BUILDDIR} \
@@ -120,9 +114,8 @@ docker run \
         --workdir /source \
         --rm=true \
         --entrypoint=/build/userwrapper.sh \
-        -e XDG_CACHE_HOME=/cache \
-        -e CCACHE_DIR=/cache/ccache \
-        --volume "${HOME}/.cache:/ccache" \
+        -e CCACHE_DIR=/ccache \
+        --volume "${HOME}/.ccache:/ccache" \
         ${DOCKER_REPO}:${DOCKER_IMAGE} \
         make -f /pack/Makefile -C /source BUILDDIR=/build -j $@
 
